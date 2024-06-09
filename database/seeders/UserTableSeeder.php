@@ -8,13 +8,14 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class UserSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
+        //create data user
         User::create([
             'name'      => 'Administrator',
             'email'     => 'admin@gmail.com',

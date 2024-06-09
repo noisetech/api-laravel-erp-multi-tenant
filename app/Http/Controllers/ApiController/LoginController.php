@@ -17,7 +17,7 @@ class LoginController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors());
+            return response()->json($validator->errors(), 422);
         }
 
         $credentials = $request->only("email", 'password');
@@ -32,6 +32,7 @@ class LoginController extends Controller
         return response()->json([
             'success' => true,
             'user' => auth()->guard('api')->user()->only(['name', 'email']),
+            'role' => auth()->guard('api')->user()->getRoleNames(),
             'permission' => auth()->guard('api')->user()->getPermissionArray(),
             'token'         => $token
         ], 200);

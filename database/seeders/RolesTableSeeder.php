@@ -6,15 +6,16 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-class RoleSeeder extends Seeder
+class RolesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $roles = Role::create([
-            'name' => 'super admin'
+        Role::create([
+            'name' => 'admin',
+            'guard_name' => 'api'
         ]);
     }
 }
